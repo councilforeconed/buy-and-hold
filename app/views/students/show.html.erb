@@ -1,0 +1,9 @@
+<h2>Hello, <%= @student.name %>.</h2>
+
+<p class="alert alert-info">Your <strong>access code</strong> is <strong><%= @student.access_code %></strong>. Write this down. You'll need it if you want to log back in later today or sometime in the future.</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger' %>
+  </div>
+</div>

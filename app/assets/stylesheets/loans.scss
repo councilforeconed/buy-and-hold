@@ -1,0 +1,13 @@
+td.eligible {
+  color: $green;
+  font-weight: 400;
+}
+
+td.ineligible {
+  color: $red;
+  font-weight: 400;
+}
+
+tr.ineligible {
+  color: #CCC;
+}

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2>Students</h2>
+    <p>Click on a table heading to resort the table.</p>
+    <table class="table tablesorter students-table">
+      <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Access Code</th>
+        <th>Section</th>
+        <th>Student ID</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @students.each do |student| %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.access_code %></td>
+            <td><%= student.section_code %></td>
+            <td><%= student.student_id %></td>
+            <td><%= link_to 'Delete', "/teachers/student/#{student.id}", method: :delete %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
