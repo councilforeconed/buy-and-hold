@@ -12,4 +12,11 @@ class Student < ActiveRecord::Base
                               message: "must be a valid email address."
                           }
 
+  def teacher
+    Teacher.find_by(email: teacher_email)
+  end
+
+  def current_year
+    teacher.current_year
+  end
 end

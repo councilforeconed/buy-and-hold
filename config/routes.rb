@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get '/teachers', to: 'teachers#index'
   delete '/teachers/student/:id', to: 'teachers#destroy_student'
 
+  post '/teachers/set-year', to: 'teachers#set_year'
+
   resources :students
 end

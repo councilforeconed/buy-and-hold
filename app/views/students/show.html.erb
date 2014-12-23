@@ -4,6 +4,13 @@
 
 <div class="row">
   <div class="col-md-12">
+    <h3>Current Year</h3>
+    <p><%= @student.current_year %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger' %>
   </div>
 </div>

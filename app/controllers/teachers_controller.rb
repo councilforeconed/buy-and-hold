@@ -10,4 +10,11 @@ class TeachersController < ApplicationController
     student.destroy!
     redirect_to teachers_path
   end
+
+  def set_year
+    unless current_teacher.update(current_year: params[:new_year].to_i)
+      flash[:alert] = "There was an error adjustung the year."
+    end
+    redirect_to teachers_path
+  end
 end

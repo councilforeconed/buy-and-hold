@@ -1,0 +1,18 @@
+<div class="col-md-3">
+  <h2>Current Year</h2>
+  <p>The simulation is currently set to <strong><%= current_teacher.current_year %></strong>. You can adjust the current year below, but keep in mind that it will change the current year for all of your students. If you're teaching multiple classes, make sure you set it back at the end of the lesson.</p>
+
+
+  <%= form_tag(teachers_set_year_path, method: 'post', class: 'year-adjustment') do %>
+    <%= hidden_field_tag(:new_year, 2000) %>
+    <button class="btn <%= current_teacher.current_year === 2000 ? 'btn-primary' : 'btn-default' %> btn-block">January 3, 2000</button>
+  <% end %>
+  <%= form_tag(teachers_set_year_path, method: 'post', class: 'year-adjustment') do %>
+    <%= hidden_field_tag(:new_year, 2002) %>
+    <button class="btn <%= current_teacher.current_year === 2002 ? 'btn-primary' : 'btn-default' %> btn-block">September 23, 2002</button>
+  <% end %>
+  <%= form_tag(teachers_set_year_path, method: 'post', class: 'year-adjustment') do %>
+    <%= hidden_field_tag(:new_year, 2007) %>
+    <button class="btn <%= current_teacher.current_year === 2007 ? 'btn-primary' : 'btn-default' %> btn-block">October 1, 2007</button>
+  <% end %>
+</div>
