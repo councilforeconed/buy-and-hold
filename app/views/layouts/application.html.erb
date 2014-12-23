@@ -37,15 +37,15 @@
                 <p class="logged-in-as">Logged in as <strong><%= current_teacher.email %></strong>.</p>
               </div>
               <div class="col-md-7 buttons">
-                <%= link_to "Student Login", root_path, :class => 'btn btn-primary'  %>
-                <%= link_to "Teacher Dashboard", teachers_path, :class => 'btn btn-default'  %>
+                <%= link_to "Teacher Dashboard", teachers_path, :class => 'btn btn-primary'  %>
+                <%= link_to "Student Login", root_path, :class => 'btn btn-default' %>
                 <%= link_to 'Edit profile', edit_teacher_registration_path, :class => 'btn btn-default' %>
                 <%= link_to "Logout", destroy_teacher_session_path, method: :delete, class: 'btn btn-warning'  %>
               </div>
             </div>
         <% else %>
             <div class="buttons">
-              <%= link_to "Student Login", root_path, :class => 'btn btn-primary'  %>
+              <%= link_to "Student Login", root_path, :class => 'btn btn-default' %>
               <%= link_to "Sign up as a Teacher", new_teacher_registration_path, :class => 'btn btn-default'  %>
               <%= link_to "Login as a Teacher", new_teacher_session_path, :class => 'btn btn-primary'  %>
             </div>

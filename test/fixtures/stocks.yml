@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  symbol: MyString
+  initial_value: 1.5
+  price_2002: 1.5
+  price_2007: 1.5
+  description: MyText
+
+two:
+  company: MyString
+  symbol: MyString
+  initial_value: 1.5
+  price_2002: 1.5
+  price_2007: 1.5
+  description: MyText
