@@ -8,7 +8,7 @@
   <div class="col-md-2">
     <p><%= link_to "Research Stocks", stocks_path, class: 'btn btn-primary btn-block' %></p>
     <p><%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger btn-block' %></p>
-    <p class="alert alert-warning">The year is currently <strong><%= @student.current_year %></strong>.<% if @student.current_year > 2000 %>You can only make investments in 2000.<% end %></p>
+    <p class="alert alert-warning">The year is currently <strong><%= @student.current_year %></strong>. <% if @student.current_year > 2000 %>You can only make investments in 2000.<% end %></p>
   </div>
   <div class="col-md-10">
     <% if investment_notice %>
@@ -19,7 +19,7 @@
     <% end %>
     <%= render 'investment_submission' %>
     <% if @student.current_year > 2000 %>
-    <p>The value of your portfolio has changed: <%= number_to_currency @student.capital_gains %></p>
+    <p class="well">The value of your portfolio has changed by <strong><%= number_to_currency @student.capital_gains %></strong></p>
     <% end %>
     <%= render 'investments_table' %>
   </div>
