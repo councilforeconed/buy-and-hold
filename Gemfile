@@ -7,7 +7,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'jquery-rails'
 gem 'uglifier', require: false
 gem 'devise'
-gem 'rails_12factor', require: false
+gem 'rails_12factor'
 gem 'jquery-tablesorter'
 
 group :development, :test do
