@@ -38,12 +38,13 @@ class StudentsController < ApplicationController
     redirect_to student_path(session[:student])
 
     stock_id, quantity = params[:investment][:stock_id], params[:investment][:quantity].to_i
+    available_cash = current_student.cash_on_hand
     investment = current_student.investments.new(stock_id: stock_id, quantity: quantity)
 
     stock = Stock.find(stock_id)
-    investment_amount = stock.price(current_student.current_year) * quantity
+    investment_amount = stock.initial_value * quantity
 
-    if current_student.portfolio_value + investment_amount  > 100_000
+    if investment_amount > available_cash
       return flash[:investment_alert] = 'You cannot invest more than $100,000.'
     end
 

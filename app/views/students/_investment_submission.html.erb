@@ -1,0 +1,14 @@
+<% if @student.current_year == 2000 %>
+    <div class="panel panel-default make-investment">
+      <div class="panel-heading">Make an Investment</div>
+      <div class="panel-body">
+        <%= form_tag(students_investments_path, method: 'post', class: 'form-inline') do %>
+            <%= label_tag 'investment[stock_id]', 'Stock' %>
+            <%= select_tag 'investment[stock_id]', options_from_collection_for_select(@stocks, 'id', 'symbol'), class: 'form-control' %>
+            <%= label_tag 'investment[quantity]', 'Quantity' %>
+            <%= number_field_tag 'investment[quantity]', 0, in: 1...100, class: 'form-control' %>
+            <%= submit_tag "Invest", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+<% end %>

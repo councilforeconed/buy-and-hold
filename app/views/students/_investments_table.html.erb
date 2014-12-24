@@ -1,0 +1,53 @@
+<h3>Investments</h3>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Company</th>
+    <th>Symbol</th>
+    <th>Quantity</th>
+    <th>Initial Value</th>
+    <th>Total Value in 2000</th>
+    <% if @student.current_year === 2000  %>
+    <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+    <% else %>
+    <th>Total Value in <%= @student.current_year %></th>
+    <th>Gain/Loss</th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+    <% @student.investments.each do |i| %>
+      <tr>
+        <td><%= i.company %></td>
+        <td><%= i.symbol %></td>
+        <td><%= i.quantity %></td>
+        <td><%= number_to_currency i.initial_value %></td>
+        <td><%= number_to_currency i.value_in(2000) %></td>
+        <% if @student.current_year === 2000  %>
+        <td>
+          <%= form_tag(students_investments_path, method: 'delete', class: 'form-inline') do %>
+              <%= hidden_field_tag 'investment[id]', i.id %>
+              <%= submit_tag "Delete", class: "btn btn-danger btn-xs" %>
+          <% end %>
+        </td>
+        <% else %>
+        <td><%= number_to_currency i.value_in(@student.current_year) %></td>
+        <td><%= number_to_currency(i.value_in(@student.current_year) - i.value_in(2000)) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Cash</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td><%= number_to_currency @student.cash_on_hand %></td>
+      <% if @student.current_year === 2000  %>
+        <td>&nbsp;</td>
+      <% else %>
+      <td><%= number_to_currency @student.cash_on_hand %></td>
+      <td>$0.00</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

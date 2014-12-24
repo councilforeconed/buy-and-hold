@@ -1,0 +1,16 @@
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <th>Symbol</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @stocks.each do |i| %>
+      <tr>
+        <td><%= i.symbol %></td>
+        <td><%= i.price(@student.current_year) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

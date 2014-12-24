@@ -22,7 +22,16 @@ class Student < ActiveRecord::Base
     teacher.current_year
   end
 
-  def portfolio_value
-    investments.reduce(0) { |s, i| s + i.value_in(current_year)}
+  def portfolio_value(year = current_year)
+    investments.reduce(0) { |s, i| s + i.value_in(year)}
   end
+
+  def cash_on_hand
+    100000 - portfolio_value(2000)
+  end
+
+  def capital_gains
+    portfolio_value(current_year) - portfolio_value(2000)
+  end
+
 end
