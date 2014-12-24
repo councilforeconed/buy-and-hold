@@ -1,5 +1,7 @@
 class Stock < ActiveRecord::Base
 
+  has_many :investments
+
   def price_2000
     initial_value
   end

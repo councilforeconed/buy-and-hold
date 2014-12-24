@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails long-term-investing: development" uuid="952a1e66-d8d1-4a48-8bee-6674b8cc7731">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails long-term-investing: test" uuid="b1070d49-16b3-4212-bba9-31f084cdfe3d">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails long-term-investing: production" uuid="6e3d9668-855b-4106-b3da-82a5607b942b">
+      <first-sync>true</first-sync>
+      <user-name>long-term-investing</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe6dfe5dfe4dfeddf87dffedfefdff8dfe7df87dfe3dfe4dffcdfefdff9dffedfe3dfe4dfeddff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+  </component>
+</project>

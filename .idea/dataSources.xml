@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2334512325">
+    <data-source source="LOCAL" name="Rails long-term-investing: development" uuid="952a1e66-d8d1-4a48-8bee-6674b8cc7731">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:long-term-investing_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails long-term-investing: test" uuid="b1070d49-16b3-4212-bba9-31f084cdfe3d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:long-term-investing_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails long-term-investing: production" uuid="6e3d9668-855b-4106-b3da-82a5607b942b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:long-term-investing_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

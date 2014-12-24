@@ -1,16 +1,85 @@
 <h2>Hello, <%= @student.name %>.</h2>
 
-<p class="alert alert-info">Your <strong>access code</strong> is <strong><%= @student.access_code %></strong>. Write this down. You'll need it if you want to log back in later today or sometime in the future.</p>
+<p class="alert alert-info">
+  Your <strong>access code</strong> is <strong><%= @student.access_code %></strong>. Write this down. You'll need it if you want to log back in later today or sometime in the future.
+</p>
 
 <div class="row">
-  <div class="col-md-12">
-    <h3>Current Year</h3>
-    <p><%= @student.current_year %></p>
+  <div class="col-md-2">
+    <p class="alert alert-warning">The year is currently <strong><%= @student.current_year %></strong>.</p>
+    <% if @student.current_year > 2000 %><p class="alert alert-danger">You can only make investments in 2000.</p><% end %>
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @stocks.each do |i| %>
+        <tr>
+          <td><%= i.symbol %></td>
+          <td><%= i.price(@student.current_year) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger btn-block' %>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger' %>
+  <div class="col-md-10">
+    <% if investment_notice %>
+        <p class="alert alert-success"><%= investment_notice %></p>
+    <% end %>
+    <% if investment_alert %>
+        <p class="alert alert-danger"><%= investment_alert %></p>
+    <% end %>
+    <% if @student.current_year == 2000 %>
+        <div class="panel panel-default make-investment">
+          <div class="panel-heading">Make an Investment</div>
+          <div class="panel-body">
+            <%= form_tag(students_investments_path, method: 'post', class: 'form-inline') do %>
+                <%= label_tag 'investment[stock_id]', 'Stock' %>
+                <%= select_tag 'investment[stock_id]', options_from_collection_for_select(@stocks, 'id', 'symbol'), class: 'form-control' %>
+                <%= label_tag 'investment[quantity]', 'Quantity' %>
+                <%= number_field_tag 'investment[quantity]', 0, in: 1...100, class: 'form-control' %>
+                <%= submit_tag "Invest", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+    <h3>Investments</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Symbol</th>
+          <th>Quantity</th>
+          <th>Initial Value</th>
+          <th>Total Value in 2000</th>
+          <% if @student.current_year === 2000  %>
+          <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @student.investments.each do |i| %>
+        <tr>
+          <td><%= i.company %></td>
+          <td><%= i.symbol %></td>
+          <td><%= i.quantity %></td>
+          <td><%= i.initial_value %></td>
+          <td><%= i.value_in(2000) %></td>
+          <% if @student.current_year === 2000  %>
+          <td>
+            <%= form_tag(students_investments_path, method: 'delete', class: 'form-inline') do %>
+            <%= hidden_field_tag 'investment[id]', i.id %>
+            <%= submit_tag "Delete", class: "btn btn-danger btn-xs" %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
