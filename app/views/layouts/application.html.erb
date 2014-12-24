@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Long-Term Investing</title>
+  <title>Buy and Hold</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
     <div class="logo left"><img src="/images/cee-logo.png" class="cee-logo"></div>
   </div>
   <div class="title">
-    <h1>Long-Term Investing</h1>
+    <h1>Buy and Hold</h1>
   </div>
 </header>
 
@@ -39,7 +39,6 @@
               <div class="col-md-7 buttons">
                 <%= link_to "Teacher Dashboard", teachers_path, :class => 'btn btn-primary'  %>
                 <%= link_to "Student Login", session[:student] ? student_path(session[:student]) : root_path, :class => 'btn btn-default' %>
-                <%= link_to 'Edit profile', edit_teacher_registration_path, :class => 'btn btn-default' %>
                 <%= link_to "Logout", destroy_teacher_session_path, method: :delete, class: 'btn btn-warning'  %>
               </div>
             </div>

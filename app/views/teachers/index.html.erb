@@ -1,5 +1,9 @@
 <div class="row">
-  <%= render "set_year" %>
+  <div class="col-md-3">
+    <%= link_to 'Research Stocks', stocks_path, :class => 'btn btn-primary btn-block' %>
+    <%= link_to 'Edit Profile', edit_teacher_registration_path, :class => 'btn btn-default btn-block' %>
+    <%= render "set_year" %>
+  </div>
   <div class="col-md-9">
     <h2>Students</h2>
     <p>Click on a table heading to resort the table.</p>
