@@ -1,0 +1,28 @@
+<% @stocks.each do |stock| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3><%= stock.company %> (<%= stock.symbol %>)</h3>
+        <p><%= stock.description %></p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Price on January 3, 2000</th>
+              <td><%= number_to_currency stock.initial_value %></td>
+            </tr>
+            <% if @year >= 2002 %>
+            <tr>
+              <th>Price on September 23, 2002</th>
+              <td><%= number_to_currency stock.price_2002 %></td>
+            </tr>
+            <% end %>
+            <% if @year >= 2007 %>
+            <tr>
+              <th>Price on October 3, 2007</th>
+              <td><%= number_to_currency stock.price_2007 %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<% end %>
