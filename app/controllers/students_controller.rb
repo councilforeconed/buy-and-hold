@@ -25,13 +25,16 @@ class StudentsController < ApplicationController
   end
 
   def show
-    if session[:student].nil? || session[:student] != params[:id].to_i
-      flash[:alert] = "You cannot view another students information."
-      redirect_to current_student ? student_path(session[:student]) : root_path
-    else
-      @student = Student.includes(:investments, :stocks).find(params[:id])
-      @stocks = Stock.all
-    end
+    redirect_if_student_is_invalid
+    @student = Student.includes(:investments, :stocks).find(params[:id])
+    redirect_if_teacher_is_invalid
+    @stocks = Stock.all
+  end
+
+  def update
+    student = Student.find(params[:id])
+    student.update(student_params)
+    redirect_to student_path(student)
   end
 
   def make_investment
@@ -101,8 +104,23 @@ class StudentsController < ApplicationController
     end
   end
 
+  private
+
   def student_params
     params.require(:student).permit(:name, :teacher_email, :section_code, :student_id)
+  end
+
+  def redirect_if_student_is_invalid
+    if session[:student].nil? || session[:student] != params[:id].to_i
+      flash[:alert] = "You cannot view another students information."
+      redirect_to current_student ? student_path(session[:student]) : root_path
+    end
+  end
+
+  def redirect_if_teacher_is_invalid
+    unless @student.teacher
+      render :teacher_not_found
+    end
   end
 
 end
