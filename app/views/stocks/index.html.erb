@@ -2,6 +2,9 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <h3><%= stock.company %> (<%= stock.symbol %>)</h3>
+        <% unless stock.symbol === "Bonds" %>
+          <div class="stock-chart"><img src="http://stockcharts.com/c-sc/sc?s=<%= stock.symbol %>&p=D&st=1990-01-01&en=<%= @date %>&i=t10161350946&r=1422915327600"></div>
+        <% end %>
         <p><%= stock.description %></p>
         <table class="table">
           <tbody>
