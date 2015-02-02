@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
                           }
 
   def current_year
-    teacher.current_year
+    teacher.current_year || 2000
   end
 
   def portfolio_value(year = current_year)
