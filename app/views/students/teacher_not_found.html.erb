@@ -1,0 +1,14 @@
+<h2>We have a minor issue…</h2>
+
+<p>You entered your teacher's email address as <em>teacher_email</em>.</p>
+
+<p>If this is correct, the issue may be that your teacher hasn't created an account yet. If that's the case, refresh this page after he or she creates one.</p>
+
+<p>If you made a typo or entered the wrong email address, you can change it here.</p>
+
+<%= form_for @student do |f| %>
+  <%= f.label :teacher_email, 'Your Teacher\'s Email Address' %>:
+  <%= f.text_field :teacher_email, class: 'form-control' %><br />
+
+  <%= submit_tag 'Update', class: 'btn btn-primary' %>
+<% end %>
