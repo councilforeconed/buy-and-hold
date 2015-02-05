@@ -3,7 +3,7 @@
       <div class="panel-body">
         <h3><%= stock.company %> (<%= stock.symbol %>)</h3>
         <% unless stock.symbol === "Bonds" %>
-          <div class="stock-chart"><img src="<%= stock.symbol %>-<%= @date %>.png"></div>
+          <div class="stock-chart"><img src="/images/stock-charts/<%= stock.symbol %>-<%= @date %>.png"></div>
         <% end %>
         <p><%= stock.description %></p>
         <table class="table">
