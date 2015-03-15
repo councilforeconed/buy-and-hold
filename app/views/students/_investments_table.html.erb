@@ -51,3 +51,16 @@
     </tr>
   </tbody>
 </table>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Total Portfolio Value</th>
+      <th>Total Gain/Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <td><%= number_to_currency @student.portfolio_value %></td>
+    <td><%= number_to_currency @student.capital_gains %></td>
+  </tbody>
+</table>
