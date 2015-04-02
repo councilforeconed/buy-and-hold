@@ -6,7 +6,7 @@
             <%= label_tag 'investment[stock_id]', 'Stock' %>
             <%= select_tag 'investment[stock_id]', options_from_collection_for_select(@stocks, 'id', 'symbol'), class: 'form-control' %>
             <%= label_tag 'investment[quantity]', 'Quantity' %>
-            <%= number_field_tag 'investment[quantity]', 0, in: 1..500, class: 'form-control' %>
+            <%= number_field_tag 'investment[quantity]', 0, class: 'form-control' %>
             <%= submit_tag "Invest", class: "btn btn-primary" %>
         <% end %>
       </div>
