@@ -25,10 +25,7 @@
         <td><%= number_to_currency i.value_in(2000) %></td>
         <% if @student.current_year === 2000  %>
         <td>
-          <%= form_tag(students_investments_path, method: 'delete', class: 'form-inline') do %>
-              <%= hidden_field_tag 'investment[id]', i.id %>
-              <%= submit_tag "Delete", class: "btn btn-danger btn-xs" %>
-          <% end %>
+          <%= link_to 'Destroy',  investment_path(i), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
         </td>
         <% else %>
         <td><%= number_to_currency i.value_in(@student.current_year) %></td>

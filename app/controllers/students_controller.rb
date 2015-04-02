@@ -66,11 +66,10 @@ class StudentsController < ApplicationController
   end
 
   def destroy_investment
-    redirect_to student_path(session[:student])
     investment = Investment.find(params[:investment][:id])
-    notice = "You are no longer investings in #{investment.company}."
+    flash[:investment_notice] = "You are no longer investings in #{investment.company}."
     investment.destroy
-    flash[:investment_notice] = notice
+    redirect_to :show, status: 303
   end
 
   def destroy
