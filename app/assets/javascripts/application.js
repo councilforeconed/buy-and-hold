@@ -12,8 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-tablesorter
 //= require_tree .
-
-$(document).ready(function() {
-  $(".students-table").tablesorter();
-});
