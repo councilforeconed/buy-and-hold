@@ -1,0 +1,24 @@
+@media print {
+  .alert {
+    padding: 0;
+  }
+
+  .print-main {
+    width: 100%;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  .cee-logo {
+    display: none;
+  }
+
+  .title h1:before {
+    content: image_url('cee-logo.png');
+    display: block;
+    margin-bottom: 10px;
+  }
+
+}

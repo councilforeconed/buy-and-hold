@@ -1,5 +1,5 @@
 <%= form_tag(student_path(student), method: 'patch', class: 'form-inline') do %>
   <%= hidden_field_tag 'origin', 'teacher' %>
   <%= hidden_field_tag 'student[submitted]', !student.submitted %>
-  <%= submit_tag "#{yes_no student.submitted} (Change)", class: "btn btn-xs btn-default" %>
+  <%= submit_tag "#{yes_no student.submitted}", class: "btn btn-xs btn-default status-change" %>
 <% end %>

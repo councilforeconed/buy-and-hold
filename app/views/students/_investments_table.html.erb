@@ -15,7 +15,7 @@
     <% if @student.current_year != 2000  %><th>Current Price</th><% end %>
     <th>Total Value in 2000</th>
     <% if @student.current_year == 2000 && !@student.submitted %>
-    <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
+    <th class="no-print"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
     <% else %>
     <th>Total Value in <%= @student.current_year %></th>
     <th>Gain/Loss</th>
@@ -32,7 +32,7 @@
         <% if @student.current_year != 2000  %><td><%= number_to_currency i.stock.price(@student.current_year) %></td><% end %>
         <td><%= number_to_currency i.value_in(2000) %></td>
         <% if @student.current_year === 2000 && !@student.submitted %>
-        <td>
+        <td class="no-print">
           <%= link_to 'Destroy',  investment_path(i), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
         </td>
         <% else %>

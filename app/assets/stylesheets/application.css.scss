@@ -11,6 +11,7 @@
 @import "./footer";
 @import "./loans";
 @import "./stocks";
+@import "./print";
 
 /*
  *= require jquery-tablesorter/theme.bootstrap
@@ -19,3 +20,7 @@
 .year-adjustment {
   margin-bottom: 4px;
 }
+
+.status-change:after {
+  content: ' (Change)';
+};

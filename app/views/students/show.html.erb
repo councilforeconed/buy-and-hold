@@ -5,12 +5,12 @@
 </p>
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 no-print">
     <p><%= link_to "Research Stocks", stocks_path, class: 'btn btn-primary btn-block' %></p>
     <p><%= link_to "Logout #{@student.name}", student_path, method: :delete, class: 'btn btn-danger btn-block' %></p>
     <p class="alert alert-warning">The year is currently <strong><%= @student.current_year %></strong>. <% if @student.current_year > 2000 %>You can only make investments in 2000.<% end %></p>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-10 print-main">
     <% if investment_notice %>
         <p class="alert alert-success"><%= investment_notice %></p>
     <% end %>
@@ -22,7 +22,7 @@
     <p class="well">The value of your portfolio has changed by <strong><%= number_to_currency @student.capital_gains %></strong></p>
     <% end %>
     <%= render 'investments_table' %>
-    <div>
+    <div class="no-print">
       <% if !@student.submitted %>
         <%= form_tag(student_path(@student), method: 'patch', class: 'form-inline') do %>
           <%= hidden_field_tag 'student[submitted]', true %>

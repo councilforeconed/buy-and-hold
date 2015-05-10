@@ -1,12 +1,12 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 no-print">
     <%= link_to 'Research Stocks', stocks_path, :class => 'btn btn-primary btn-block' %>
     <%= link_to 'Edit Profile', edit_teacher_registration_path, :class => 'btn btn-default btn-block' %>
     <%= render "set_year" %>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-9 print-main">
     <h2>Students</h2>
-    <p>Click on a table heading to resort the table.</p>
+    <p class="no-print">Click on a table heading to resort the table.</p>
     <table class="table tablesorter students-table">
       <thead>
       <tr>
@@ -17,7 +17,7 @@
         <th>Total Portfolio</th>
         <th>Gain/Loss</th>
         <th>Submitted</th>
-        <th>Actions</th>
+        <th class="no-print">Actions</th>
       </tr>
       </thead>
       <tbody>
@@ -32,7 +32,7 @@
             <td>
               <%= render partial: 'update_student_status', locals: { student: student } %>
             </td>
-            <td><%= link_to 'Delete', "/teachers/student/#{student.id}", method: :delete %>
+            <td class="no-print"><%= link_to 'Delete', "/teachers/student/#{student.id}", method: :delete %>
           </tr>
       <% end %>
       </tbody>

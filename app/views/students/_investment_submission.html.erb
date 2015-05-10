@@ -1,5 +1,5 @@
 <% if @student.current_year == 2000 && !@student.submitted %>
-    <div class="panel panel-default make-investment">
+    <div class="panel panel-default make-investment no-print">
       <div class="panel-heading">Make an Investment</div>
       <div class="panel-body">
         <%= form_tag(students_investments_path, method: 'post', class: 'form-inline') do %>
