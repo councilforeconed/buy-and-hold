@@ -29,7 +29,9 @@
             <td><%= student.student_id %></td>
             <td><%= number_to_currency student.portfolio_value %></td>
             <td><%= number_to_currency student.capital_gains %></td>
-            <td><%= student.submitted ? 'Yes' : 'No' %></td>
+            <td>
+              <%= render partial: 'update_student_status', locals: { student: student } %>
+            </td>
             <td><%= link_to 'Delete', "/teachers/student/#{student.id}", method: :delete %>
           </tr>
       <% end %>

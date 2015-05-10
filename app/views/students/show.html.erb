@@ -26,7 +26,9 @@
       <% if !@student.submitted %>
         <%= form_tag(student_path(@student), method: 'patch', class: 'form-inline') do %>
           <%= hidden_field_tag 'student[submitted]', true %>
-          <%= submit_tag "Submit Investments (You cannot undo this.)", class: "btn btn-block btn-success" %>
+          <%= submit_tag "Submit Investments (You cannot undo this.)",
+                         class: "btn btn-block btn-success",
+                         data: { confirm: "Are you sure you want to submit your investments? You cannot undo this!" } %>
         <% end %>
       <% end %>
     </div>
