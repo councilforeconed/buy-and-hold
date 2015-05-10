@@ -16,6 +16,7 @@
         <th>Student ID</th>
         <th>Total Portfolio</th>
         <th>Gain/Loss</th>
+        <th>Submitted</th>
         <th>Actions</th>
       </tr>
       </thead>
@@ -28,6 +29,7 @@
             <td><%= student.student_id %></td>
             <td><%= number_to_currency student.portfolio_value %></td>
             <td><%= number_to_currency student.capital_gains %></td>
+            <td><%= student.submitted ? 'Yes' : 'No' %></td>
             <td><%= link_to 'Delete', "/teachers/student/#{student.id}", method: :delete %>
           </tr>
       <% end %>

@@ -1,4 +1,10 @@
 <h3>Investments</h3>
+
+<% if @student.current_year == 2000 && @student.submitted %>
+  <p class="alert alert-warning">
+    You submitted your investments. Therefore, you're no longer eligible to make additional investments or change existing ones.
+  </p>
+<% end %>
 <table class="table">
   <thead>
   <tr>
@@ -8,7 +14,7 @@
     <th>Initial Price</th>
     <% if @student.current_year != 2000  %><th>Current Price</th><% end %>
     <th>Total Value in 2000</th>
-    <% if @student.current_year == 2000  %>
+    <% if @student.current_year == 2000 && !@student.submitted %>
     <th><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></th>
     <% else %>
     <th>Total Value in <%= @student.current_year %></th>
@@ -25,7 +31,7 @@
         <td><%= number_to_currency i.initial_value %></td>
         <% if @student.current_year != 2000  %><td><%= number_to_currency i.stock.price(@student.current_year) %></td><% end %>
         <td><%= number_to_currency i.value_in(2000) %></td>
-        <% if @student.current_year === 2000  %>
+        <% if @student.current_year === 2000 && !@student.submitted %>
         <td>
           <%= link_to 'Destroy',  investment_path(i), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %>
         </td>

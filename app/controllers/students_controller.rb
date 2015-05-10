@@ -106,7 +106,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:name, :teacher_email, :section_code, :student_id)
+    params.require(:student).permit(:name, :teacher_email, :section_code, :student_id, :submitted)
   end
 
   def redirect_if_student_is_invalid

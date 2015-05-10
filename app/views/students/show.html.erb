@@ -22,5 +22,13 @@
     <p class="well">The value of your portfolio has changed by <strong><%= number_to_currency @student.capital_gains %></strong></p>
     <% end %>
     <%= render 'investments_table' %>
+    <div>
+      <% if !@student.submitted %>
+        <%= form_tag(student_path(@student), method: 'patch', class: 'form-inline') do %>
+          <%= hidden_field_tag 'student[submitted]', true %>
+          <%= submit_tag "Submit Investments (You cannot undo this.)", class: "btn btn-block btn-success" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
