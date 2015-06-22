@@ -110,10 +110,32 @@ class StudentsController < ApplicationController
   end
 
   def redirect_if_student_is_invalid
-    if session[:student].nil? || session[:student] != params[:id].to_i
+    if student_does_not_belong_to_current_teacher && not_allowed_to_see_student
       flash[:alert] = "You cannot view another students information."
       redirect_to current_student ? student_path(session[:student]) : root_path
     end
+  end
+
+  def not_allowed_to_see_student
+    there_is_no_student_session || student_session_does_not_match_params_id
+  end
+
+  def there_is_no_student_session
+    session[:student].nil?
+  end
+
+  def student_session_does_not_match_params_id
+    session[:student] != params[:id].to_i
+  end
+
+  def student_belongs_to_current_teacher
+    if current_teacher
+      !!Student.where(teacher_email: current_teacher.email, id: params[:id])
+    end
+  end
+
+  def student_does_not_belong_to_current_teacher
+    !student_belongs_to_current_teacher
   end
 
   def redirect_if_teacher_is_invalid
